@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    background: url("./img/bg.jpg") center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+
+/* Header */
+
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #101010;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.img-logo{
+    vertical-align: middle;
+    height: 70px;
+    width: 70px;
+}
+
+.logotype{
+    margin-left: 60px;
+}
+
+.logo-text{
+    color: white;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.menu{
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    margin: 0px 100px;
+}
+
+.header-links{
+    color: #ffffff;
+    margin: 0px 50px;
+}
+
+.header-link:hover{
+    color: #ff8800;
+}
+
+.log-reg{
+    color: #ffffff;
+    padding: 5px 16px;
+    border: 1px solid #ffffff;
+    transition: background-color .2s,color .2s;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.log-reg:hover{
+    color: #ff8800;
+    background-color: #ffffff;
+}
+
+.header-buttons{
+    margin-right: 60px;
+}
+
+
+/* Footer */
+
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #101010;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.img-logo-footer{
+    height: 50px;
+    width: 50px;
+}
+
+.footer-text-name{
+    text-align: center;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.footer-text-mail{
+    text-align: center;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.contacts{
+    margin-right: 50px;
+}
+
+.contact-buttons{
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    padding-top: 13px;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin-right: 15px;
+}
+
+.pictures-footer{
+    height: 25px;
+    width: 25px;
+}
