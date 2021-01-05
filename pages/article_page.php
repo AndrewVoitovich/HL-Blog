@@ -112,36 +112,33 @@
                                         <a class="enter" href="#">Enter</a>
                                     </div>
                                 </div>
-
                                 <div class="profile-comment">
                                     <hr class="comment-strip">
                                 </div>
-                                <div class="profile-comment">
-                                    <span class="profile-picture">
-                                        <i class="fas fa-user-circle"></i>
-                                    </span>
-                                    <span class="profile-name">
-                                        <p>Scientist</p>
-                                        <p class="comment-text">Oh no... Probably those people from the Anomalous Materials laboratory again.</p>
-                                    </span>
-                                </div>
+                                <?php 
+                                $comments = array(
+                                    array(
+                                        "username" => "Scientist",
+                                        "comment" => "Oh no... Probably those people from the Anomalous Materials laboratory again."
+                                    ),
+                                    array(
+                                        "username" => "Soldier",
+                                        "comment" => "And why do we have to do the dirty work? Just because Shepard's team got caught up in something?"
+                                    )
+                                );
 
-                                <div class="profile-comment">
-                                    <span class="profile-picture">
-                                        <i class="fas fa-user-circle"></i>
-                                    </span>
-                                    <span class="profile-name">
-                                        <p>Soldier</p>
-                                        <p class="comment-text">And why do we have to do the dirty work? Just because Shepard's team got caught up in something?</p>
-                                    </span>
-                                </div>
-
+                                foreach ($comments as $comment) {
+                                    require "../sections/comments.php";
+                                }
+                                ?>
                             </div>
                         </div>
                 </article>
             </div>
         </main>
     </div>
+
+
 
         <footer>
             <a class="logotype" href="#"><img src="/img/logo.png" class="img-logo-footer"></a>
