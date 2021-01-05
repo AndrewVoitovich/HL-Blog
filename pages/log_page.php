@@ -18,9 +18,9 @@
     <div>
         <header>
             <div>
-                <a class="logotype" href="/html/index.html"><img src="/img/logo.png" class="img-logo"></a>
+                <a class="logotype" href="/"><img src="/img/logo.png" class="img-logo"></a>
 
-                <a class="logo-text" href="/html/index.html">HL Blog</a>
+                <a class="logo-text" href="/">HL Blog</a>
             </div>
             <nav class="menu">
                 <a class="header-links" href="#">News</a>
@@ -30,7 +30,7 @@
             </nav>
             <div class="header-buttons">
                 <a class="log-reg" href="#">Login</a>
-                <a class="log-reg" href="/html/reg_page.html">Registration</a>
+                <a class="log-reg" href="/pages/reg_page.php">Registration</a>
             </div>
         </header>
 
@@ -41,7 +41,7 @@
                     <input type="text" class="input-name" placeholder="Username">
                     <input type="password" class="input-name" placeholder="Password">
                     <div class="button-reg">
-                        <a class="reg" href="/html/index.html">Sign-in</a>
+                        <a class="reg" href="/">Sign-in</a>
                     </div>
                 </div>
 

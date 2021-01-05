@@ -18,9 +18,9 @@
     <div>
         <header>
             <div>
-                <a class="logotype" href="/html/index.html"><img src="/img/logo.png" class="img-logo"></a>
+                <a class="logotype" href="/"><img src="/img/logo.png" class="img-logo"></a>
 
-                <a class="logo-text" href="/html/index.html">HL Blog</a>
+                <a class="logo-text" href="/">HL Blog</a>
             </div>
             <nav class="menu">
                 <a class="header-links" href="#">News</a>
@@ -29,8 +29,8 @@
                 <a class="header-links" href="#">Contacts</a>
             </nav>
             <div class="header-buttons">
-                <a class="log-reg" href="/html/log_page.html">Login</a>
-                <a class="log-reg" href="/html/reg_page.html">Registration</a>
+                <a class="log-reg" href="/pages/log_page.php">Login</a>
+                <a class="log-reg" href="/pages/reg_page.php">Registration</a>
             </div>
         </header>
 
@@ -58,7 +58,7 @@
 
                     </div>
                     <div class="button-registration">
-                        <a class="registration" href="/html/index.html">Sign-up</a>
+                        <a class="registration" href="/">Sign-up</a>
                     </div>
                 </div>
 
