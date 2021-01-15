@@ -1,84 +1,113 @@
+<?php 
+    $mysql = new mysqli('localhost','root','','hl_blog');
+    $content = $mysql->query("SELECT * FROM users");
+?>
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <?php require "../sections/head.php" ?>
     <link rel="stylesheet" href="/css/style_reg_page.css">
     <link rel="stylesheet" href="/css/header-footer.css">
-    <link rel="icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/same_styles_log-reg.css">
     <title>Registration</title>
-
 </head>
 
 <body>
 
     <div>
-        <header>
-            <div>
-                <a class="logotype" href="/"><img src="/img/logo.png" class="img-logo"></a>
+        <?php require "../sections/header.php" ?>
+        <?php
+            if (isset($_POST['username'])) {
+                $username = stripslashes($_REQUEST['username']);
+                $username = $mysql->real_escape_string($username);
+                $email = stripslashes($_REQUEST['email']);
+                $email = $mysql->real_escape_string($email);
+                $confirm_email = stripslashes($_REQUEST['confirm_email']);
+                $confirm_email = $mysql->real_escape_string($confirm_email);
+                $password = stripslashes($_REQUEST['password']);
+                $password = $mysql->real_escape_string($password);
+                $confirm_password = stripslashes($_REQUEST['confirm_password']);
+                $confirm_password = $mysql->real_escape_string($confirm_password);
+                $name = stripslashes($_REQUEST['name']);
+                $name = $mysql->real_escape_string($name);
+                $surname = stripslashes($_REQUEST['surname']);
+                $surname = $mysql->real_escape_string($surname);
+                $birthday = stripslashes($_REQUEST['birthday']);
+                $birthday = $mysql->real_escape_string($birthday);
+                $country = stripslashes($_REQUEST['country']);
+                $country = $mysql->real_escape_string($country);
+                $native_city = stripslashes($_REQUEST['native_city']);
+                $native_city = $mysql->real_escape_string($native_city);
 
-                <a class="logo-text" href="/">HL Blog</a>
-            </div>
-            <nav class="menu">
-                <a class="header-links" href="#">News</a>
-                <a class="header-links" href="#">Events</a>
-                <a class="header-links" href="#">Shop</a>
-                <a class="header-links" href="#">Contacts</a>
-            </nav>
-            <div class="header-buttons">
-                <a class="log-reg" href="/pages/log_page.php">Login</a>
-                <a class="log-reg" href="/pages/reg_page.php">Registration</a>
-            </div>
-        </header>
+                $isFormValid = TRUE;
+                if(strlen($username) < 3) {
+                    echo '<div class="container">
+                            <h2 class="h2">Username is too short.</h2>
+                        </div>';
+                    $isFormValid = FALSE;
+                    exit();
+                }
+                
+                if(strlen($email) < 7) {
+                    echo '<div class="container">
+                            <h2 class="h2">Email is too short.</h2>
+                        </div>';
+                    $isFormValid = FALSE;
+                    exit();
+                }
+                
+                if(strlen($password) < 6) {
+                    echo '<div class="container">
+                            <h2 class="h2">Password is too short.</h2>
+                        </div>';
+                    $isFormValid = FALSE;
+                    exit();
+                }
+ 
+                if($email !== $confirm_email){
+                    echo "<div class='container'>
+                            <h2 class='h2'>Email doesn\'t match.</h2>
+                        </div>";
+                    $isFormValid = FALSE;
+                    exit();
+                }
+                
+                if($password !== $confirm_password){
+                    echo "<div class='container'>
+                            <h2 class='h2'>Password doesn\'t match.</h2>
+                        </div>";
+                    $isFormValid = FALSE;
+                }
 
-        <main class="main-part">
-            <div>
-                <div class="section">
-                    <div class="inputs-all">
-                        <div class="inputs-required">
-                            <h1>Registration</h1>
-                            <input class="input-name" placeholder="Username">
-                            <input type="email" class="input-name" placeholder="Email">
-                            <input type="email" class="input-name" placeholder="Confirm email">
-                            <input type="password" class="input-name" placeholder="Password">
-                            <input type="password" class="input-name" placeholder="Confirm password">
-                        </div>
-                        
-                        <div class="inputs-optional">
-                            <h1>Optional</h1>
-                            <input class="input-name" placeholder="Name">
-                            <input class="input-name" placeholder="Surname">
-                            <input class="input-name" placeholder="Birthday">
-                            <input class="input-name" placeholder="Country">
-                            <input class="input-name" placeholder="Native city">
-                        </div>
 
-                    </div>
-                    <div class="button-registration">
-                        <a class="registration" href="/">Sign-up</a>
-                    </div>
-                </div>
+                if($isFormValid) {
+                    $query = "INSERT INTO `users` (username, email, `password`, `name`, surname, birthday, country, native_city)
+                    VALUES ('$username', '$email', '" . md5($password) . "', '$name', '$surname', '$birthday', '$country', '$native_city')";
+                    $result = $mysql->query($query);
+                    if (!$result) {
+                        echo '<div class="container">
+                                <h2 class="h2">You have successfully registered.</h2>
+                            </div>';
+                    } else {
+                        echo "<div class='container'>
+                                    <h2 class='h2'>You have successfully registered.</h2>
+                            </div>";
+                    }
+                }
 
-            </div>
-    
-        </main>
+            } else {
+        ?>
+        <?php require "../sections/registration.php" ?>
+        <?php
+            }
+        ?>
+
     </div>
     
-        <footer>
-            <a class="logotype" href="#"><img src="/img/logo.png" class="img-logo-footer"></a>
-            <p class="footer-text-name">Voitovych Andrew</p>
-            <p class="footer-text-mail">voitovych.andrew.viktorovich@gmail.com</p>
-            <div class="contacts">
-                <a class="contact-buttons" href="#"><img src="/img/facebook.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/twitter.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/youtube.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/vk.png" class="pictures-footer"></a>
-            </div>
-        </footer>
-
+    <?php require "../sections/footer.php" ?>
     
 </body>
 

@@ -9,27 +9,9 @@
 /* Main */
 
 
-.main-part{
-
-    margin-top: 75px;
-}
-
-.main-part a{
-    color: #101010;
-}
-
-.section{
-    border: 1px solid #101010;
-    border-radius: 25px;
+.width-height{
     width: 500px;
     height: 300px;
-    margin: auto;
-    background-color: #ffffffc5;
-    padding-top: 35px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
 }
 
 .inputs{
@@ -39,27 +21,16 @@
     margin-top: 12px;
 }
 
-.input-name{
-    width: 200px;
-    height: 25px;
-    margin-top: 30px;
-    border: 2px solid #ff8800;
-    border-radius: 6px;
-    padding-left: 8px;
-}
-
-.input-name:focus{
-    border-radius: 6px;
-    outline: none;
-}
-
 .button-reg{
     margin-top: 55px;
 }
 
-.reg{
-    color: #ffffff;
+.padding-reg{
     padding: 10px 32px;
+}
+
+.registration_confirm{
+    color: #000000;
     border: 1px solid #101010;
     transition: background-color .2s,color .2s;
     border-radius: 6px;
@@ -67,7 +38,7 @@
     border-width: 2px;
 }
 
-.reg:hover{
+.registration_confirm:hover{
     color: #ff8800;
     background-color: #ffffff;
     border-color: #ff8800;

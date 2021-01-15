@@ -1,0 +1,150 @@
+.container{
+display: flex;
+justify-content: space-between;
+width: 850px;
+height: 450px;
+border: 1px solid #101010;
+border-radius: 25px;
+margin: auto;
+margin-bottom: 30px;
+margin-top: 30px;
+background-color: #ffffffc5;
+align-items: center;
+}
+
+.left-part{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 400px;
+    background-color: #adadadcb;
+    border: 1px solid #101010;
+    border-radius: 20px;
+    margin-left: 25px;
+}
+
+.fas{
+    font-size: 175px;
+    margin-top: 40px;
+}
+
+.username{
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.user-class{
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+
+.right-part{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    background-color: #adadadcb;
+    border: 1px solid #101010;
+    border-radius: 20px;
+    margin: 0px 25px 0px 15px;
+}
+
+.all-settings{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.required-settings{
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.input-name{
+    width: 150px;
+    height: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ff8800;
+    border-radius: 6px;
+    padding-left: 8px;
+}
+
+.input-name:focus{
+    border-radius: 6px;
+    outline: none;
+}
+
+.title-input{
+    margin-bottom: -10px;
+}
+
+.button-edit:last-child{
+    display: flex;
+    align-items: center;
+}
+
+.edit{
+    display: flex;
+    align-items: center;
+    border: 1px solid #101010;
+    color: #101010;
+    padding: 5px 50px;
+    transition: background-color .2s,color .2s;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.edit:hover{
+    color: #ff8800;
+    background-color: #ffffff;
+    border-color: #ff8800;
+}
+
+.button-admin{
+    margin-top: 15px;
+}
+
+.admin{
+    border: 1px solid #101010;
+    border-radius: 6px;
+    color: #101010;
+    padding: 5px 25px;
+    transition: background-color .2s,color .2s;
+}
+
+.admin:hover{
+    color: #ff8800;
+    background-color: #ffffff;
+    border-color: #ff8800;
+}
+
+.container-error{
+    display: flex;
+    flex-direction: row;
+    margin-left: 45%;
+    margin-top: 122px;
+    position: absolute;
+    z-index: 100;
+}
+
+.error{
+    width: 139px;
+    color: #101010;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.email-margin{
+    margin-left: 56%;
+}
+
+.password-margin{
+    margin-left: 65%;
+}

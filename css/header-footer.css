@@ -70,8 +70,12 @@ header{
     padding: 5px 16px;
     border: 1px solid #ffffff;
     transition: background-color .2s,color .2s;
-    border-radius: 3px;
+    border-radius: 6px;
     text-align: center;
+}
+
+.log-reg:last-child{
+    margin-left: 10px;
 }
 
 .log-reg:hover{
@@ -80,6 +84,8 @@ header{
 }
 
 .header-buttons{
+    display: flex;
+    justify-content: space-between;
     margin-right: 60px;
 }
 

@@ -23,7 +23,7 @@
     justify-content: center;
     border: 1px solid #101010;
     border-radius: 25px;
-    width: 800px;
+    width: 900px;
     margin: auto;
     background-color: #ffffffc5;
     margin-top: 15px;
@@ -41,13 +41,13 @@
 
 .text{
     margin-left: 15px;
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 21px;
 }
 
 .text-rm{
     font-size: 13px;
-    margin-top: 21px;
+    margin-top: 15px;
     color: #2e2e2e;
 }
 

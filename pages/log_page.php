@@ -1,66 +1,57 @@
+<?php 
+    $mysql = new mysqli('localhost','root','','hl_blog');
+?>
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <?php require "../sections/head.php" ?>
     <link rel="stylesheet" href="/css/style_log_page.css">
     <link rel="stylesheet" href="/css/header-footer.css">
-    <link rel="icon" href="/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="/css/same_styles_log-reg.css">
     <title>Sign-in</title>
-
 </head>
 
 <body>
-
     <div>
-        <header>
-            <div>
-                <a class="logotype" href="/"><img src="/img/logo.png" class="img-logo"></a>
 
-                <a class="logo-text" href="/">HL Blog</a>
-            </div>
-            <nav class="menu">
-                <a class="header-links" href="#">News</a>
-                <a class="header-links" href="#">Events</a>
-                <a class="header-links" href="#">Shop</a>
-                <a class="header-links" href="#">Contacts</a>
-            </nav>
-            <div class="header-buttons">
-                <a class="log-reg" href="#">Login</a>
-                <a class="log-reg" href="/pages/reg_page.php">Registration</a>
-            </div>
-        </header>
+        <?php require "../sections/header.php" ?>
 
-        <main class="main-part">
-            <div class="section">
-                <h1>Login</h1>
-                <div class="inputs">
-                    <input type="text" class="input-name" placeholder="Username">
-                    <input type="password" class="input-name" placeholder="Password">
-                    <div class="button-reg">
-                        <a class="reg" href="/">Sign-in</a>
-                    </div>
-                </div>
-
-            </div>
-    
-        </main>
     </div>
     
-        <footer>
-            <a class="logotype" href="#"><img src="/img/logo.png" class="img-logo-footer"></a>
-            <p class="footer-text-name">Voitovych Andrew</p>
-            <p class="footer-text-mail">voitovych.andrew.viktorovich@gmail.com</p>
-            <div class="contacts">
-                <a class="contact-buttons" href="#"><img src="/img/facebook.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/twitter.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/youtube.png" class="pictures-footer"></a>
-                <a class="contact-buttons" href="#"><img src="/img/vk.png" class="pictures-footer"></a>
-            </div>
-        </footer>
+    <?php session_start();
+        // When form submitted, check and create user session.
+        if (isset($_POST['username'])) {
+            $username = stripslashes($_REQUEST['username']);
+            $username = $mysql->real_escape_string($username);
+            $password = stripslashes($_REQUEST['password']);
+            $password = $mysql->real_escape_string($password);
+            // Check user is exist in the database
+            $query    = "SELECT * FROM `users` WHERE username='$username'
+                        AND password='" . md5($password) . "'";
+            $result = $mysql->query($query) or die($mysql->error);
+            $rows = $result->num_rows;
+            if ($rows == 1) {
+                $user = $result->fetch_assoc();
+                $_SESSION['user-id'] = $user['id'];
+                // Redirect to user page
+                header("Location: /");
+            } else {
+                echo "<div class='form'>
+                    <h3>Incorrect Username/password.</h3><br/>
+                    <p class='link'>Click here to <a href='login.php'>Login</a> again.</p>
+                    </div>";
+            }
+        } else {
+    ?>
+    <?php require "../sections/login.php" ?>
+    <?php
+        }
+    ?>
+
+    <?php require "../sections/footer.php" ?>
 
 </body>
 
